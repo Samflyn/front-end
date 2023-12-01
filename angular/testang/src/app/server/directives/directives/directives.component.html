@@ -1,0 +1,19 @@
+<h1 class="text-center">Directives</h1>
+<div class="container">
+    <div class="row mt-4 mb-3">
+        <p appBasicDirective>Basic directive</p>
+    </div>
+    <div class="row my-3">
+        <p appBetterDirective [defaultColor]="'yellow'" highlightColor="red">Better directive</p>
+    </div>
+    <div class="row my-3">
+        <p *appUnless="false">Custom structural directive</p>
+    </div>
+    <div class="row my-3" [ngSwitch]="valuess">
+        <p>Switch Case -&gt;</p>
+        <div *ngSwitchCase="1">One</div>
+        <div *ngSwitchCase="2">Two</div>
+        <div *ngSwitchCase="3">Three</div>
+        <div *ngSwitchDefault>No valuess</div>
+    </div>
+</div>

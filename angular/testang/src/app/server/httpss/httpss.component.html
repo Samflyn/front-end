@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row">
+        <h4>Http with Angular</h4>
+    </div>
+    <div class="row">
+        <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" name="name" ngModel required>
+            </div>
+            <div class="form-group">
+                <div class="radio-light">
+                    <label><input type="radio" name="pass" value="true" ngModel required>True</label>
+                </div>
+                <div class="radio-light">
+                    <label><input type="radio" name="pass" value="false" ngModel required>False</label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="!form.form.valid">
+                Save
+            </button>
+        </form>
+    </div>
+    <div class="row mt-3" *ngIf="userList.length > 0">
+        <ul class="list-group-horizontal" *ngFor="let user of userList">
+            <li class="list-group-item">{{ user.name }} : {{ user.pass }} <button type="button"
+                    class="badge badge-danger" (click)="onDeleteUser(user.id)">X</button></li>
+        </ul>
+    </div>
+    <div class="row mt-3" *ngIf="userList.length === 0 && !error">
+        <h3>No Users in List</h3>
+    </div>
+    <div class="alert alert-danger mt-3" *ngIf="error">
+        <h3>Error</h3>
+        <p>{{ error }}</p>
+    </div>
+</div>

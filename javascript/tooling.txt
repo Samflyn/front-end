@@ -1,0 +1,44 @@
+// npm //
+
+npm init // making it managable with node
+
+npm install --save-dev eslint // to install package for dev dependency
+
+npm install // install the packages from package.json to node-modules
+
+// webpack //
+
+npm install --save-dev webpack webpack-cli
+
+uses webpack.config.js
+
+add to scripts in package.json 
+
+=> 'build' : 'webpack'
+
+//also need to remove .js in imports
+
+=> produces one bundle with the same name,
+
+and an additional bundle with name 1.sameName if we are using lazy loading i.e dynamic imports
+
+to run use npm run build
+
+// webpack-dev-server //
+
+npm install --save-dev webpack-dev-server
+
+add to scripts in package.json 
+
+=> 'build:dev' : 'webpack-dev-server'
+
+to run in dev server => npm run build:dev
+
+// production //
+
+in package.json => 'build:prod' : 'webpack --config name'
+
+// cleanup //
+
+npm install --save-dev clean-webpack-plugin //removes old scripts in output
+

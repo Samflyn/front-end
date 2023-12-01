@@ -1,0 +1,17 @@
+<%- include('layouts/home.ejs') %>
+
+<!-- no layouts in ejs, just use it like html -->
+
+<body>
+    <main>
+        <% if (itemList.length > 0) { %>
+            <% for (const item of itemList) {%>
+            <%= item.title %>
+            <%- include('layouts/home.ejs',{item:item}) %>
+            <!-- in loop included pages don't get the looped data by default, data is passed as an arg -->
+            <% } %>
+        <% } %>
+    </main>
+</body>
+
+</html>

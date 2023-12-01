@@ -1,0 +1,28 @@
+<h1 class="text-center">Components and Data Binding</h1>
+<div class="container">
+    <div class="row mt-4 mb-3">
+        <p>Alias can be assigned to property -&gt; {{element}}</p>
+    </div>
+    <div class="row my-3">
+        <p>Child to parent -&gt;</p>
+        <button class="btn btn-primary mx-3" (click)="onAppCall()">Call Parent</button>
+    </div>
+    <div class="row my-3">
+        <p>To pass local reference -&gt;</p>
+        <input type="text" class="form-control col-2 mx-3" #address>
+        <button class="btn btn-secondary mx-2" (click)="getAddress(address)">Add Address</button>
+    </div>
+    <div class="row my-3">
+        <p>To get local access directly -&gt;</p>
+        <input type="text" value="some input" class="form-control col-2 mx-3" #newAddress>
+        <button class="btn btn-primary" (click)="getNewAddress()">New Address</button>
+    </div>
+    <div class="row my-3">
+        <ng-content #paragraph></ng-content>
+    </div>
+    <div class="row my-3">
+        <p>To send data to basic component -&gt;</p>
+        <input type="text" class="form-control col-2 mx-3" #toBasic>
+        <button class="btn btn-primary" (click)="sendToServer(toBasic)">To Basic</button>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row mt-3">
+        <ul class="list-unstyled">
+            <li>
+                <p>To uppercase pipe -&gt; {{ data.toUpper | uppercase }}</p>
+            </li>
+            <li>
+                <p>Date pipe -&gt; {{ data.date | date }}</p>
+            </li>
+            <li>
+                <p>Parameterized pipe -&gt; {{ data.date | date: 'fullDate' }}</p>
+            </li>
+            <li>
+                <p>Chaining pipes -&gt; {{ data.date | date: 'fullDate' | uppercase }}</p>
+            </li>
+            <li>
+                <p>Custom pipe -&gt; {{ data.date | date | custom: 123 }}</p>
+            </li>
+            <li>
+                <p>Custom filter -&gt;</p>
+                <input type="text" [(ngModel)]="filterText">
+                <button type="button" class="btn btn-primary" (click)="addText()">Add Text</button>
+                <ul class="list-group">
+                    <li class="list-group-item" *ngFor="let item of textData | filter:filterText">{{ item }}</li>
+                </ul>
+            </li>
+            <hr>
+            <li>
+                <p>Async data -&gt; {{ asyncData }}</p>
+            </li>
+            <li>
+                <p>Async data with <strong>async</strong> pipe -&gt; {{ asyncData | async }}</p>
+            </li>
+        </ul>
+    </div>
+</div>

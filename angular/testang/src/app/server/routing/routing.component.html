@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+        <p>Go to Home Page -&gt; <button class="btn btn-primary" (click)="goHome()">To Home</button></p>
+    </div>
+    <div class="row" *ngIf="!user.id">
+        <p>Add user -&gt;<a [routerLink]="[1, 'sam']">Add me</a></p>
+    </div>
+    <div class="row" *ngIf="user.id">
+        <p>User -&gt;{{user.id}} {{user.name}}</p>
+    </div>
+    <div class="row">
+        <p>Change the user through url -&gt;<a [routerLink]="['../../', 3, 'sam']" [queryParams]="{edit:true}"
+                [fragment]="'loading'">Change Data</a></p>
+    </div>
+    <div class="row">
+        <p>For query params and fragment -&gt;<button class="btn btn-primary" (click)="setParams(1)">Params</button></p>
+    </div>
+    <div class="row" *ngIf="userName">
+        <p>Dynamic data from Accounts Service in resolver -&gt; {{userName}}</p>
+    </div>
+</div>

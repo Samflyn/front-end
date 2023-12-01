@@ -1,0 +1,10 @@
+<main>
+    {{!-- handlebars dosen't support logics only true or false
+        {{#if itemList.lenght > 0 }} Dosen't work --}}
+    {{#if itemList}}
+    {{#each item }}
+    {{this.title}} {{!-- this refers to current element in the loop --}}
+    {{else}}
+    <h1>no producto</h1>
+    {{/if}}
+</main>

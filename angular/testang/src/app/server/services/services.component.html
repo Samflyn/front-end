@@ -1,0 +1,14 @@
+<h1 class="text-center">Services</h1>
+<div class="container">
+    <div class="row my-3">
+        <ul>
+            <li *ngFor="let account of accountsList">
+                name : {{account.name}}, age : {{account.age}}
+            </li>
+        </ul>
+    </div>
+    <div class="row my-3">
+        <p>Services can also be used to send data from one component to another -&gt; <button (click)="callService()"
+                class="btn btn-primary">Click me</button></p>
+    </div>
+</div>

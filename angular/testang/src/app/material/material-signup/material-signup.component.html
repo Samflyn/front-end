@@ -1,0 +1,80 @@
+<section>
+  <form #form="ngForm">
+    <div class="row no-gutters">
+      <mat-form-field class="w-50">
+        <mat-label>Name</mat-label>
+        <input
+          matInput
+          placeholder="Your Name"
+          ngModel
+          name="name"
+          required
+          #nameInp="ngModel"
+        />
+        <mat-error *ngIf="nameInp.hasError('required')"
+          >Email should not be empty.</mat-error
+        >
+      </mat-form-field>
+    </div>
+    <div class="row no-gutters">
+      <mat-form-field class="w-50">
+        <mat-label>Email-id</mat-label>
+        <input
+          matInput
+          placeholder="Your Email"
+          ngModel
+          name="email"
+          email
+          required
+          #emailInp="ngModel"
+        />
+        <mat-error *ngIf="emailInp.hasError('required')"
+          >Email should not be empty.</mat-error
+        >
+        <mat-error *ngIf="!emailInp.hasError('required')"
+          >Email is invalid.</mat-error
+        >
+      </mat-form-field>
+    </div>
+    <div class="row no-gutters">
+      <mat-form-field class="w-50" hintLabel="Should be atleast 8 char long.">
+        <mat-label>Password</mat-label>
+        <input
+          type="password"
+          matInput
+          placeholder="Your Password"
+          ngModel
+          name="password"
+          minlength="8"
+          #pwd="ngModel"
+        />
+        <mat-hint matSuffix>{{ pwd.value?.length }}/8</mat-hint>
+        <mat-error>Should be atleast 8 char long.</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="row no-gutters">
+      <mat-form-field appearance="fill" class="w-50">
+        <mat-label>Date of Birth</mat-label>
+        <input
+          matInput
+          placeholder="Your Birthday"
+          [matDatepicker]="picker"
+          [max]="maxDate"
+          ngModel
+          name="birthday"
+        />
+        <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="row no-gutters"></div>
+    <button
+      type="button"
+      mat-raised-button
+      color="primary"
+      (click)="onSubmit(form)"
+    >
+      Submit
+    </button>
+  </form>
+</section>

@@ -1,0 +1,25 @@
+<mat-sidenav-container>
+  <mat-sidenav #sidenav role="navigation" class="vh-100 w-25">
+    <mat-nav-list>
+      <a mat-list-item routerLink="/material/signup" (click)="sidenav.close()"
+        ><mat-icon>face</mat-icon><span>Signup Form</span></a
+      >
+      <a mat-list-item routerLink="/material/signup" (click)="sidenav.close()"
+        ><mat-icon>face</mat-icon><span>Tabs</span></a
+      >
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <div>
+        <button mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
+      <div>
+        <a [routerLink]="['/material']">Welcome</a>
+      </div>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

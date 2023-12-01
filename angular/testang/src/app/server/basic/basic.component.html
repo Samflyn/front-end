@@ -1,0 +1,32 @@
+<h1 class="text-center my-4">Basic</h1>
+<div class="container mt-5">
+    <div class="row my-2">
+        <p>String Interpolation -&gt; {{name}}</p>
+    </div>
+    <div class="row my-2">
+        <p class="mr-3">Property Binding -&gt; </p>
+        <input type="text" [disabled]='!inputStatus' class="form-control col-3" [(ngModel)]="name">
+    </div>
+    <div class="row my-3">
+        <p>Event Binding -&gt; </p>
+        <button class="btn btn-primary mx-3" (click)="onInput()">Enable Input</button>
+        <button class="btn btn-danger mx-3" (click)="offInput()">Disable Input</button>
+    </div>
+    <div class="row my-3">
+        <p>Two way binding -&gt; {{name}}</p>
+    </div>
+    <hr>
+    <p *ngIf="false;else theelse">Something</p>
+    <!-- <p>
+        Behind the scenes angular transforms *ngIf to
+        <ng-template [ngIf]="false"></ng-template>
+    </p> -->
+    <ng-template #theelse>
+        <p [ngStyle]="{backgroundColor: getColor()}" [ngClass]="{'bg-primary': otherColor()=='purple'}">nothing...</p>
+    </ng-template>
+    <div class="row">
+        <p>ngFor -&gt;</p>
+        <p *ngFor="let item of lists;let i=index;let c=count" class="mx-2"> {{ item }}</p>
+    </div>
+    {{fromServer}}
+</div>

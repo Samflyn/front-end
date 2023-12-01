@@ -1,0 +1,59 @@
+<!-- <app-basic [fromServer]="basicData"></app-basic>
+<hr>
+<app-components (appCalled)="fromChild($event)" (toServer)="toBasic($event)" [element]=2>
+    <p class="text-dark" #paragraph>To show this from parent.</p>
+</app-components>
+<hr>
+<app-directives></app-directives>
+<hr>
+<app-services></app-services> -->
+<div class="navbar-wrapper">
+  <div class="container">
+    <ul class="navbar list-unstyled" role="navigation">
+      <li
+        role="presentation"
+        routerLinkActive="bg-secondary"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <a routerLink="basic">Basic</a>
+      </li>
+      <li role="presentation" routerLinkActive="bg-secondary">
+        <a routerLink="components">Components</a>
+      </li>
+      <li role="presentation" routerLinkActive="bg-secondary">
+        <a routerLink="directives">Directives</a>
+      </li>
+      <li role="presentation" routerLinkActive="bg-secondary">
+        <a routerLink="services">Services</a>
+      </li>
+      <li role="presentation" routerLinkActive="bg-secondary">
+        <a routerLink="routing">Routing</a>
+      </li>
+      <li role="presentation" routerLinkActive="bg-secondary">
+        <a routerLink="observables">Observables</a>
+      </li>
+      <li role="presentation" routerLinkActive="bg-secondary">
+        <a routerLink="formss">Formss</a>
+      </li>
+      <li role="presentation" routerLinkActive="bg-secondary">
+        <a routerLink="pipess">Pipess</a>
+      </li>
+      <li role="presentation" routerLinkActive="bg-secondary">
+        <a routerLink="httpss">Httpss</a>
+      </li>
+      <li role="presentation" routerLinkActive="bg-secondary">
+        <a routerLink="animations">Animations</a>
+      </li>
+      <li role="presentation" routerLinkActive="bg-secondary">
+        <a routerLink="elements">Elements</a>
+      </li>
+      <li role="presentation" routerLinkActive="bg-secondary" *ngIf="!user">
+        <a routerLink="/login">Login</a>
+      </li>
+      <li role="presentation" routerLinkActive="bg-secondary" *ngIf="user">
+        <a routerLink="/logout">Logout</a>
+      </li>
+    </ul>
+  </div>
+</div>
+<router-outlet></router-outlet>

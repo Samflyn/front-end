@@ -1,0 +1,13 @@
+extends layouts/layout.pug
+
+block title
+    #{title}
+
+block content
+    if itemList.length > 0
+        each item in itemList
+            p #{item}
+    else
+        h1 no items
+    h1(class = (path === '/'?'bold':''))
+    //- for adding class based on path

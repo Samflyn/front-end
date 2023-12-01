@@ -1,0 +1,87 @@
+<div class="container">
+    <div class="row">
+        <h4>Template Driven</h4>
+    </div>
+    <div class="row">
+        <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+            <div ngModelGroup="userData" #userData="ngModelGroup">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" name="username" [ngModel]="defaultName" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" name="password" ngModel required>
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" type="button" (click)="suggestData()">Suggest Data</button>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" name="email" [(ngModel)]="email" #useremail="ngModel" email>
+                <span class="text-danger" *ngIf="!useremail.valid && useremail.touched">Invalid Email</span>
+                <br>
+                <span *ngIf="email">Your email -&gt; {{ email }}</span>
+            </div>
+            <div class="radio-light" *ngFor="let gender of genders">
+                <label>
+                    <input type="radio" name="gender" ngModel [value]="gender" required> {{ gender }}
+                </label>
+            </div>
+            <button class="btn btn-primary" type="submit" [disabled]="!form.form.valid">
+                Save
+            </button>
+        </form>
+    </div>
+</div>
+<hr>
+<div class="container mt-3">
+    <div class="row">
+        <h4>Reactive Driver</h4>
+        <hr>
+    </div>
+    <div class="row">
+        <form [formGroup]="reactiveForm" (ngSubmit)="reactiveSubmit()">
+            <div formGroupName="userData">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username" class="form-control" formControlName="username">
+                    <span class="text-danger"
+                        *ngIf="!reactiveForm.get('userData.username').valid && reactiveForm.get('userData.username').touched">Invalid
+                        Username</span>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" class="form-control"
+                        formControlName="password">
+                    <span class="text-danger"
+                        *ngIf="!reactiveForm.get('userData.password').valid && reactiveForm.get('userData.password').touched">Invalid
+                        Password</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" class="form-control" formControlName="email" email>
+                <span class="text-danger"
+                    *ngIf="!reactiveForm.get('email').valid && reactiveForm.get('email').touched">Invalid Email</span>
+            </div>
+            <div class="radio-light" *ngFor="let gender of genders">
+                <label>
+                    <input type="radio" name="gender" formControlName="gender" [value]="gender"> {{ gender }}
+                </label>
+            </div>
+            <div class="form-group" formArrayName="toDo">
+                <h4>The to-do list</h4>
+                <button class="btn btn-primary" type="button" (click)="addToDo()">Add To-Do</button>
+                <div class="form-group" *ngFor="let todo of controls; let i = index">
+                    <input type="text" class="form-group" [formControlName]="i" placeholder="To-Do">
+                    <button type="button" class="btn btn-danger" (click)="onDelete(i)">x</button>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="!reactiveForm.valid">
+                Save
+            </button>
+        </form>
+    </div>
+</div>
