@@ -15,7 +15,7 @@ function App() {
     <Provider store={store}>
       <div className="App">
         <NewExpense />
-        <Expenses></Expenses>
+        <Expenses />
       </div>
       <Counter />
       <IncreaseCounter />
